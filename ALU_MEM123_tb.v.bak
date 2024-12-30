@@ -1,0 +1,46 @@
+module ALU_MEM123_tb;
+    reg [3:0] memory_A [0:3]; 
+    reg [3:0] memory_B [0:3]; 
+    reg [3:0] result_memory [0:3]; 
+    reg [3:0] A, B;
+    reg [2:0] opcode;
+    wire [3:0] R;
+
+    integer i;
+
+    
+    ALU alu_instance (
+        .A(A),
+        .B(B),
+        .opcode(opcode),
+        .R(R)
+    );
+
+    initial begin
+        // Initialize memories
+        memory_A[0] = 4'b0010; memory_B[0] = 4'b0001; // Example inputs
+        memory_A[1] = 4'b0100; memory_B[1] = 4'b0011;
+        memory_A[2] = 4'b1110; memory_B[2] = 4'b0001;
+        memory_A[3] = 4'b1010; memory_B[3] = 4'b0101;
+
+        opcode = 3'b000; // Set operation to Addition
+
+        for (i = 0; i < 4; i = i + 1) begin
+            // Read inputs from memory
+            A = memory_A[i];
+            B = memory_B[i];
+
+            #10; // Wait for computation
+
+            // Store the result in result memory
+            result_memory[i] = R;
+        end
+
+        // Display results
+        for (i = 0; i < 4; i = i + 1) begin
+            $display("A = %b, B = %b, R = %b", memory_A[i], memory_B[i], result_memory[i]);
+        end
+
+        $finish; 
+    end
+endmodule
