@@ -1,5 +1,5 @@
- ## 4-bit ALU Design with Memory in Verilog
-# This repository contains the Verilog code for a 4-bit Arithmetic Logic Unit (ALU) with separate memories for storing inputs (A and B) and outputs (R). It supports multiple arithmetic and logical operations based on a 3-bit opcode.
+ # 4-bit ALU Design with Memory in Verilog
+. *This repository contains the Verilog code for a 4-bit Arithmetic Logic Unit (ALU) with separate memories for storing inputs (A and B) and outputs (R). It supports multiple arithmetic and logical operations based on a 3-bit opcode.*
 
 ## Features
 . *Arithmetic Operations:*
